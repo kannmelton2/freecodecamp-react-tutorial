@@ -1,22 +1,50 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function Greeting() {
+import './index.css';
+
+function BookList() {
   // while we write very familiar html here, we are techincally returning JSX
   return(
-    <div>
-      <Person />
-      <Message />
-    </div>
+    <section className="booklist">
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+      <Book />
+    </section>
   )
 }
 
-const Person = () => {
-  return <h1>John Doe</h1>
+const Book = () => {
+  return (
+    <article className="book">
+      <CoverImage />
+      <BookTitle />
+      <BookAuthor />
+    </article>
+  )
 }
 
-const Message = () => {
-  return <p>This is my message</p>
+const CoverImage = () => {
+  return (
+    <img src="https://images-na.ssl-images-amazon.com/images/I/51fr9AhktcL._SX329_BO1,204,203,200_.jpg" alt="book cover"/>
+  )
 }
 
-ReactDOM.render(<Greeting />, document.getElementById('root'));
+const BookTitle = () => {
+  return (
+    <p className="title">Curves for the Mathematically Curious</p>
+  )
+}
+
+const BookAuthor = () => {
+  return (
+    <p className="author">by Julian Havil</p>
+  )
+}
+
+ReactDOM.render(<BookList />, document.getElementById('root'));
