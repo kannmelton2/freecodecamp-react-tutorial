@@ -37,11 +37,17 @@ function BookList() {
 
 const Book = (props) => {
   const { imageSrc, title, author } = props;
+
+  const clickHandler = () => {
+    console.error('I did something!');
+  }
+  
   return (
     <article className="book">
       <img src={imageSrc} alt="book cover" />
       <p className="title">{title}</p>
       <p className="author">{author}</p>
+      <button type="button" onClick={clickHandler}>I do Something</button>
     </article>
   )
 }
