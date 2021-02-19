@@ -21,7 +21,10 @@ const books = [
 function BookList() {
   const createBooks = (
     books.map((singleBook) => {
-    return <Book key={singleBook.id} book={singleBook} />
+      // using the spread operator here means we are changing the way we send the book object,
+      // we are sending its properties, and we have no need to use `book.propertyName`
+      // look down at Book component beginning on line 38 to see
+    return <Book key={singleBook.id} {...singleBook} />
   })
   )
 
@@ -33,12 +36,12 @@ function BookList() {
 }
 
 const Book = (props) => {
-  const { book } = props;
+  const { imageSrc, title, author } = props;
   return (
     <article className="book">
-      <img src={book.imageSrc} alt="book cover" />
-      <p className="title">{book.title}</p>
-      <p className="author">{book.author}</p>
+      <img src={imageSrc} alt="book cover" />
+      <p className="title">{title}</p>
+      <p className="author">{author}</p>
     </article>
   )
 }
